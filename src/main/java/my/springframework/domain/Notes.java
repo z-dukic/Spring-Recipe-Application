@@ -1,4 +1,4 @@
-package guru.springframework.domain;
+package my.springframework.domain;
 
 import javax.persistence.*;
 
