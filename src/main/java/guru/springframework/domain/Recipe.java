@@ -1,7 +1,13 @@
-package my.springframework.domain;
+package guru.springframework.domain;
+
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
+
+/**
+ * Created by jt on 6/13/17.
+ */
 
 @Entity
 public class Recipe {
@@ -32,7 +38,7 @@ public class Recipe {
 
     @ManyToMany
     @JoinTable(name = "recipe_category",
-            joinColumns = @JoinColumn(name = "recipe_id"),
+        joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
 
     private Set<Category> categories;
@@ -101,22 +107,6 @@ public class Recipe {
         this.directions = directions;
     }
 
-    public Byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(Byte[] image) {
-        this.image = image;
-    }
-
-    public Notes getNotes() {
-        return notes;
-    }
-
-    public void setNotes(Notes notes) {
-        this.notes = notes;
-    }
-
     public Set<Ingredient> getIngredients() {
         return ingredients;
     }
@@ -125,12 +115,28 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
+    public Byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(Byte[] image) {
+        this.image = image;
+    }
+
     public Difficulty getDifficulty() {
         return difficulty;
     }
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Notes getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Notes notes) {
+        this.notes = notes;
     }
 
     public Set<Category> getCategories() {

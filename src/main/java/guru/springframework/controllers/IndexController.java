@@ -1,15 +1,17 @@
-package my.springframework.controllers;
+package guru.springframework.controllers;
 
-import my.springframework.domain.Category;
-import my.springframework.domain.UnitOfMeasure;
-import my.springframework.repositories.CategoryRepository;
-import my.springframework.repositories.UnitOfMeasureRepository;
+import guru.springframework.domain.Category;
+import guru.springframework.domain.UnitOfMeasure;
+import guru.springframework.repositories.CategoryRepository;
+import guru.springframework.repositories.UnitOfMeasureRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import java.util.Optional;
 
+/**
+ * Created by jt on 6/1/17.
+ */
 @Controller
 public class IndexController {
 
@@ -22,14 +24,13 @@ public class IndexController {
     }
 
     @RequestMapping({"", "/", "/index"})
-    public String getIndexPage() {
+    public String getIndexPage(){
 
         Optional<Category> categoryOptional = categoryRepository.findByDescription("American");
         Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
 
-        System.out.println("Cat id is" + categoryOptional.get().getId());
-        System.out.println("OUM ID is" + unitOfMeasureOptional.get().getId());
-
+        System.out.println("Cat Id is: " + categoryOptional.get().getId());
+        System.out.println("UOM ID is: " + unitOfMeasureOptional.get().getId());
 
         return "index";
     }
